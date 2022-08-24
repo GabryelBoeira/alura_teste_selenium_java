@@ -1,4 +1,4 @@
-package br.com.alura.leilao;
+package br.com.alura.leilao.selenium;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
