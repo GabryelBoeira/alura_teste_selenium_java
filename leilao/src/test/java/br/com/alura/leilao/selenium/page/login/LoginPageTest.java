@@ -1,4 +1,4 @@
-package br.com.alura.leilao.selenium.pages;
+package br.com.alura.leilao.selenium.page.login;
 
 import br.com.alura.leilao.selenium.objectPage.LoginPageObject;
 import org.junit.jupiter.api.AfterEach;
