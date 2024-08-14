@@ -1,6 +1,7 @@
 package br.com.alura.leilao.selenium.objectPage;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 
 public class LoginPageObject extends PageObjectConfig {
 
@@ -27,6 +28,12 @@ public class LoginPageObject extends PageObjectConfig {
 
     public void navegarParaPaginaDeLances() {
         navigateTo(URL_LEILOES_2);
+    }
+
+    public LeiloesPageObject submitForm() {
+        browser.findElement(By.id("login-form")).submit();
+
+        return new LeiloesPageObject(browser);
     }
 
 }

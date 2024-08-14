@@ -9,6 +9,20 @@ public abstract class PageObjectConfig {
 
     protected static WebDriver browser;
 
+    /**
+     * Constructs a new PageObjectConfig object with the given WebDriver instance.
+     *
+     * @param  browser  the WebDriver instance to be used by this PageObjectConfig object
+     */
+    public PageObjectConfig(final WebDriver browser) {
+        if (System.getProperty("os.name").contains("Windows"))
+            System.setProperty("webdriver.chrome.driver", "drivers/windows/chrome/chromedriver.exe");
+        else
+            System.setProperty("webdriver.chrome.driver", "drivers/linux/chrome/chromedriver_104");
+
+        this.browser = browser;
+    }
+
     public PageObjectConfig() {
         if (System.getProperty("os.name").contains("Windows"))
             System.setProperty("webdriver.chrome.driver", "drivers/windows/chrome/chromedriver.exe");
@@ -20,10 +34,6 @@ public abstract class PageObjectConfig {
 
     protected WebDriver getBrowser() {
         return browser;
-    }
-
-    public void fechar() {
-        browser.quit();
     }
 
     public void submitFormById(final String id) {
@@ -45,4 +55,12 @@ public abstract class PageObjectConfig {
     public void navigateTo(final String url) {
         browser.navigate().to(url);
     }
+
+    /**
+     * Closes the browser instance.
+     */
+    public void fechar() {
+        browser.quit();
+    }
+
 }
