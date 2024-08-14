@@ -8,8 +8,11 @@ import org.openqa.selenium.chrome.ChromeDriver;
 class SeleniumHelloWordTest {
 
     @BeforeAll
-    static void beforeAll(){
-        System.setProperty("webdriver.chrome.driver","drivers/chromedriver_104");
+    static void beforeAll() {
+        if (System.getProperty("os.name").contains("Windows"))
+            System.setProperty("webdriver.chrome.driver", "drivers/windows/chrome/chromedriver.exe");
+        else
+            System.setProperty("webdriver.chrome.driver", "drivers/linux/chrome/chromedriver_104");
     }
 
     @Test
@@ -18,4 +21,5 @@ class SeleniumHelloWordTest {
         browser.navigate().to("http://localhost:8080/leiloes");
         browser.quit();
     }
+
 }

@@ -10,7 +10,11 @@ public abstract class PageObjectConfig {
     protected static WebDriver browser;
 
     public PageObjectConfig() {
-        System.setProperty("webdriver.chrome.driver", "drivers/chromedriver_104");
+        if (System.getProperty("os.name").contains("Windows"))
+            System.setProperty("webdriver.chrome.driver", "drivers/windows/chrome/chromedriver.exe");
+        else
+            System.setProperty("webdriver.chrome.driver", "drivers/linux/chrome/chromedriver_104");
+
         browser = new ChromeDriver();
     }
 
