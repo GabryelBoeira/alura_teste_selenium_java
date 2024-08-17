@@ -8,3 +8,8 @@
 - Suba o browser automaticamente
 - Preencha formulários automaticamente
 - Teste telas com AJAX
+
+
+[Certificado de conclusão do curso](https://cursos.alura.com.br/certificate/bd453992-58f7-4801-9245-6c2dfcc0b02a?lang)
+
+**_ Curso Concluido _**
