@@ -5,6 +5,8 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.util.concurrent.TimeUnit;
+
 public abstract class PageObjectConfig {
 
     protected static WebDriver browser;
@@ -24,6 +26,12 @@ public abstract class PageObjectConfig {
             this.browser = new ChromeDriver();
         else
             this.browser = webDriver;
+
+        // implicit wait
+        this.browser.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+
+        // page load timeout
+        this.browser.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
     }
 
     protected WebDriver getBrowser() {
