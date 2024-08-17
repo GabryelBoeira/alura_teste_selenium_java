@@ -1,6 +1,6 @@
 package br.com.alura.leilao.selenium.page.login;
 
-import br.com.alura.leilao.selenium.objectPage.LoginPageObject;
+import br.com.alura.leilao.selenium.pageObject.LoginPageObject;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;

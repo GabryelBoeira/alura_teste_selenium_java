@@ -1,7 +1,6 @@
-package br.com.alura.leilao.selenium.objectPage;
+package br.com.alura.leilao.selenium.pageObject;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
 public class LoginPageObject extends PageObjectConfig {
 
@@ -9,7 +8,7 @@ public class LoginPageObject extends PageObjectConfig {
     private static final String URL_LEILOES_2 = "http://localhost:8080/leiloes/2";
 
     public LoginPageObject() {
-        super();
+        super(null);
         getBrowser().navigate().to(URL_LOGIN);
     }
 

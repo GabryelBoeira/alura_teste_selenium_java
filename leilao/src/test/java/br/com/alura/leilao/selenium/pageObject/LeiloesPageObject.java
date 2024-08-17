@@ -1,4 +1,4 @@
-package br.com.alura.leilao.selenium.objectPage;
+package br.com.alura.leilao.selenium.pageObject;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -11,18 +11,6 @@ public class LeiloesPageObject extends PageObjectConfig {
 
     public LeiloesPageObject(WebDriver browser) {
         super(browser);
-        getBrowser().navigate().to(URL_LEILOES);
-    }
-
-    public LeiloesPageObject() {
-        super();
-        getBrowser().navigate().to(URL_LEILOES);
-    }
-
-    public void cadastrarLeilao(String nome, String valorInicial, String dataAbertura) {
-        browser.findElement(By.id("nome")).sendKeys(nome);
-        browser.findElement(By.id("valorInicial")).sendKeys(valorInicial);
-        browser.findElement(By.id("dataAbertura")).sendKeys(dataAbertura);
     }
 
     public boolean isLeilaoCadastrado(String nome, String valor, String data) {
@@ -36,10 +24,18 @@ public class LeiloesPageObject extends PageObjectConfig {
                     && colunaValorInicial.getText().equals(valor);
     }
 
-
     public CadastroLeilaoPageObject carregarFormulario() {
         browser.navigate().to(URL_CADASTRO_LEILAO);
         return new CadastroLeilaoPageObject(browser);
+    }
+
+    /**
+     * Verifies if the current page is the login page.
+     *
+     * @return true if the current page is the login page, false otherwise
+     */
+    public boolean isPaginaAtual() {
+        return browser.getCurrentUrl().equalsIgnoreCase(URL_LEILOES);
     }
 
 }

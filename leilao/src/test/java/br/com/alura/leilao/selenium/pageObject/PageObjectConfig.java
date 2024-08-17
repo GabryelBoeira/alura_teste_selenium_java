@@ -1,4 +1,4 @@
-package br.com.alura.leilao.selenium.objectPage;
+package br.com.alura.leilao.selenium.pageObject;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
@@ -12,24 +12,18 @@ public abstract class PageObjectConfig {
     /**
      * Constructs a new PageObjectConfig object with the given WebDriver instance.
      *
-     * @param  browser  the WebDriver instance to be used by this PageObjectConfig object
+     * @param  webDriver  the WebDriver instance to be used by this PageObjectConfig object
      */
-    public PageObjectConfig(final WebDriver browser) {
+    public PageObjectConfig(final WebDriver webDriver) {
         if (System.getProperty("os.name").contains("Windows"))
             System.setProperty("webdriver.chrome.driver", "drivers/windows/chrome/chromedriver.exe");
         else
             System.setProperty("webdriver.chrome.driver", "drivers/linux/chrome/chromedriver_104");
 
-        this.browser = browser;
-    }
-
-    public PageObjectConfig() {
-        if (System.getProperty("os.name").contains("Windows"))
-            System.setProperty("webdriver.chrome.driver", "drivers/windows/chrome/chromedriver.exe");
+        if (webDriver == null)
+            this.browser = new ChromeDriver();
         else
-            System.setProperty("webdriver.chrome.driver", "drivers/linux/chrome/chromedriver_104");
-
-        browser = new ChromeDriver();
+            this.browser = webDriver;
     }
 
     protected WebDriver getBrowser() {
